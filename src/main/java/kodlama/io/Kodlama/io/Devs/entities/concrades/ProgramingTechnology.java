@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,21 +16,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Table(name = "programingLanguages")
+@Table(name = "programingTechnology")
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ProgramingLanguage {
+public class ProgramingTechnology {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "programingLanguageId")
+	@Column(name = "id")
 	private int id;
-
+	
 	@Column(name = "name")
-	private String name;
-
-	@OneToMany(mappedBy = "programingLanguage")
-	Set<ProgramingTechnology> programingTechnologies;
-
+	private String name;	
+	
+	@ManyToOne()
+	@JoinColumn(name = "programingLanguageId")
+	private ProgramingLanguage programingLanguage;
+	
 }

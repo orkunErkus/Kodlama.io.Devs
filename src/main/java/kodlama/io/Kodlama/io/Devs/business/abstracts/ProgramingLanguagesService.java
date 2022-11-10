@@ -2,18 +2,25 @@ package kodlama.io.Kodlama.io.Devs.business.abstracts;
 
 import java.util.List;
 
-import kodlama.io.Kodlama.io.Devs.entities.concrades.ProgramingLanguage;
+import kodlama.io.Kodlama.io.Devs.business.requests.languagesRequests.CreateProgramingLanguageRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.languagesRequests.GetAllProgramingLanguageRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.languagesRequests.RemoveProgramingLanguageRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.languagesRequests.UpdateProgramingLanguageRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.technologyRequests.CreateProgramingTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.responses.languagesResponses.GetAllProgramingLanguagesResponse;
+import kodlama.io.Kodlama.io.Devs.business.responses.languagesResponses.GetByIdProgramingLanguageResponse;
+
 
 public interface ProgramingLanguagesService {
 
-	List<ProgramingLanguage> getAll();
+	List<GetAllProgramingLanguagesResponse> getAll();
 
-	void add(ProgramingLanguage programingLanguage);
+	void add(CreateProgramingLanguageRequest createProgramingLanguageRequest)throws Exception;
 
-	void delete(int id);
+	void remove(RemoveProgramingLanguageRequest	removeProgramingLanguageRequest);
 
-	void update(ProgramingLanguage programingLanguage);
+	void update(UpdateProgramingLanguageRequest	updateProgramingLanguageRequest)throws Exception;
 
-	ProgramingLanguage getById(int id);
+	GetByIdProgramingLanguageResponse getById(int id)throws Exception;
 
 }
